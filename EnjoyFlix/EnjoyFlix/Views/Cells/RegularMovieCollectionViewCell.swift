@@ -15,6 +15,8 @@ class RegularMovieCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        containerView.layer.cornerRadius = 20
+        posterImageView.layer.cornerRadius = 20
     }
 
     func setUp(_ model: CollectionModel) {

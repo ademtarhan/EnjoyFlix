@@ -8,39 +8,35 @@
 import Foundation
 
 protocol MoviesRepository: HTTPService {
-    func getNowPlaying(atPage page: Int) async throws -> [MovieResponse]
-    func getUpcoming(atPage page: Int) async throws -> [MovieResponse]
-    func getTopRated(atPage page: Int) async throws -> [MovieResponse]
-    func getPopular(atPage page: Int) async throws -> [MovieResponse]
+    func getMovie(atPage page: Int, dataType datatype: DataType) async throws -> [MovieResponse]
 }
 
-
 struct MoviesRepositoryImplemented: MoviesRepository {
-    func getNowPlaying(atPage page: Int) async throws -> [MovieResponse] {
-        guard let url = EndpointService.Movies.nowPlaying(atPage: page) else { throw HTTPError.invalidEndpoint }
-
-        let response: MoviesListResponse = try await handleDataTask(from: url)
-        return response.results
+    func getMovie(atPage page: Int, dataType: DataType) async throws -> [MovieResponse] {
+        switch dataType {
+        case .nowPlaying:
+            guard let url = EndpointService.Movies.nowPlaying(atPage: page) else { throw HTTPError.invalidEndpoint }
+            let response: MoviesListResponse = try await handleDataTask(from: url)
+            return response.results
+        case .upComing:
+            guard let url = EndpointService.Movies.upcoming(atPage: page) else { throw HTTPError.invalidEndpoint }
+            let response: MoviesListResponse = try await handleDataTask(from: url)
+            return response.results
+        case .popular:
+            guard let url = EndpointService.Movies.topRated(atPage: page) else { throw HTTPError.invalidEndpoint }
+            let response: MoviesListResponse = try await handleDataTask(from: url)
+            return response.results
+        case .topRated:
+            guard let url = EndpointService.Movies.popular(atPage: page) else { throw HTTPError.invalidEndpoint }
+            let response: MoviesListResponse = try await handleDataTask(from: url)
+            return response.results
+        }
     }
-    
-    func getUpcoming(atPage page: Int) async throws -> [MovieResponse] {
-        guard let url = EndpointService.Movies.upcoming(atPage: page) else { throw HTTPError.invalidEndpoint }
+}
 
-        let response: MoviesListResponse = try await handleDataTask(from: url)
-        return response.results
-    }
-    
-    func getTopRated(atPage page: Int) async throws -> [MovieResponse] {
-        guard let url = EndpointService.Movies.topRated(atPage: page) else { throw HTTPError.invalidEndpoint }
-
-        let response: MoviesListResponse = try await handleDataTask(from: url)
-        return response.results
-    }
-    
-    func getPopular(atPage page: Int) async throws -> [MovieResponse] {
-        guard let url = EndpointService.Movies.popular(atPage: page) else { throw HTTPError.invalidEndpoint }
-
-        let response: MoviesListResponse = try await handleDataTask(from: url)
-        return response.results
-    }
+enum DataType {
+    case nowPlaying
+    case upComing
+    case topRated
+    case popular
 }

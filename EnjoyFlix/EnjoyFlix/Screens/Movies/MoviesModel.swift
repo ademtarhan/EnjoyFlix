@@ -7,10 +7,20 @@
 
 import Foundation
 
-protocol MoviesModel{
-    
+// TODO: Code will be optimized
+
+protocol MoviesModel {
+    func getMovie(atPage page: Int, dataType: DataType) async throws -> [MovieResponse]
 }
 
-class MoviesModelImplemented: MoviesModel{
-    
+class MoviesModelImplemented: MoviesModel {
+    var repository: MoviesRepository
+
+    init(repository: MoviesRepository) {
+        self.repository = repository
+    }
+
+    func getMovie(atPage page: Int, dataType: DataType) async throws -> [MovieResponse] {
+        try await repository.getMovie(atPage: page, dataType: dataType)
+    }
 }
