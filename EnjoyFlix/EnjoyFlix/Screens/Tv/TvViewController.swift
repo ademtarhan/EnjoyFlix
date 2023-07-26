@@ -36,7 +36,7 @@ class TvViewController: UIViewController {
                     return UICollectionViewCell()
                 }
                 
-                cell.setUp(model)
+                cell.setUpTV(model)
                 return cell
             case .topRated, .airingToday, .popular:
                 guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.regularMovieCellID, for: indexPath) as? RegularMovieCollectionViewCell else {
