@@ -29,6 +29,28 @@ struct EndpointService {
             URL(string: "\(mediaBaseURL)\(posterId)")
         }
     }
+    
+    
+    struct Tv {
+        static func popular(atPage page: Int) -> URL? {
+            URL(string: "\(baseURL)/3/tv/popular?api_key=\(apiKey)&language=en-US&page=\(page)")
+        }
+        
+        static func airingToday(atPage page: Int) -> URL? {
+            URL(string: "\(baseURL)/3/tv/airing_today?api_key=\(apiKey)&language=en-US&page=\(page)")
+        }
+        
+        static func onTv(atPage page: Int) -> URL? {
+            URL(string: "\(baseURL)/3/tv/on_the_air?api_key=\(apiKey)&language=en-US&page=\(page)")
+        }
+        
+        static func topRated(atPage page: Int) -> URL? {
+            URL(string: "\(baseURL)/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=\(page)")
+        }
+        static func poster(ofMovie posterId: String?) -> URL? {
+            URL(string: "\(mediaBaseURL)\(posterId)")
+        }
+    }
 }
 
 

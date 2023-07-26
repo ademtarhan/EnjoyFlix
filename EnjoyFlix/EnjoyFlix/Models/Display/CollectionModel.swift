@@ -35,3 +35,15 @@ class MovieCollectionModel: CollectionModel {
         super.init(id: id)
     }
 }
+
+
+class TvCollectionModel: CollectionModel {
+    let title: String
+    let posterURL: URL?
+    
+    init(id: Int, title: String, posterPath: String?) {
+        self.title = title
+        self.posterURL = EndpointService.Tv.poster(ofMovie: posterPath)
+        super.init(id: id)
+    }
+}

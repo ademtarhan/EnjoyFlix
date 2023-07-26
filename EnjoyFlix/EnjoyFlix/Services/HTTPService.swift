@@ -31,7 +31,7 @@ extension HTTPService{
     
     func handleDataTask<T:HTTPResponse>(from url: URL) async throws -> T {
         let (data,_) = try await session.data(from: url)
-        data.printData()
+        //data.printData()
         return try decoder.decode(T.self, from: data)
     }
     

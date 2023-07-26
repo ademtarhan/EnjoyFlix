@@ -27,4 +27,15 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
 
         posterImageView.loadImage(withURL: movie.posterURL)
     }
+    
+    func setUpTV(_ model: CollectionModel) {
+        guard let tv = model as? TvCollectionModel else {
+            let placeholderView = UIView(frame: bounds)
+            placeholderView.backgroundColor = .brown
+            addSubview(placeholderView)
+            return
+        }
+
+        posterImageView.loadImage(withURL: tv.posterURL)
+    }
 }

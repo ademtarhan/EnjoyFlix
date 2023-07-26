@@ -29,4 +29,15 @@ class RegularMovieCollectionViewCell: UICollectionViewCell {
 
         posterImageView.loadImage(withURL: movie.posterURL)
     }
+
+    func setUpTv(_ model: CollectionModel) {
+        guard let TV = model as? TvCollectionModel else {
+            let placeholderView = UIView(frame: bounds)
+            placeholderView.backgroundColor = .brown
+            addSubview(placeholderView)
+            return
+        }
+        //print("-> \(TV.posterURL)")
+        posterImageView.loadImage(withURL: TV.posterURL)
+    }
 }

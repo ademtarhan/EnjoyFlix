@@ -8,11 +8,11 @@
 import Foundation
 
 protocol MoviesRepository: HTTPService {
-    func getMovie(atPage page: Int, dataType datatype: DataType) async throws -> [MovieResponse]
+    func getMovie(atPage page: Int, dataType datatype: MovieState) async throws -> [MovieResponse]
 }
 
 struct MoviesRepositoryImplemented: MoviesRepository {
-    func getMovie(atPage page: Int, dataType: DataType) async throws -> [MovieResponse] {
+    func getMovie(atPage page: Int, dataType: MovieState) async throws -> [MovieResponse] {
         switch dataType {
         case .nowPlaying:
             guard let url = EndpointService.Movies.nowPlaying(atPage: page) else { throw HTTPError.invalidEndpoint }
@@ -34,7 +34,7 @@ struct MoviesRepositoryImplemented: MoviesRepository {
     }
 }
 
-enum DataType {
+enum MovieState {
     case nowPlaying
     case upComing
     case topRated

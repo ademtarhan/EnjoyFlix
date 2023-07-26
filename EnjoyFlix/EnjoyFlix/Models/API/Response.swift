@@ -22,3 +22,16 @@ struct MovieResponse: HTTPResponse{
     let posterPath: String
     let releaseDate: Date
 }
+
+struct TvListResponse: HTTPResponse{
+    let page: Int
+    let results: [TvResponse]
+}
+
+// TODO: Tv -> TV
+struct TvResponse: HTTPResponse{
+    let id: Int
+    let name: String
+    let posterPath: String?
+}
+

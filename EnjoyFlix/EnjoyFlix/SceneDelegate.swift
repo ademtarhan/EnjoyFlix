@@ -70,7 +70,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func initUI() {
         let movies = AppAssembler.shared.assembler?.resolver.resolve(MoviesViewController.self)
-        let navigationController = UINavigationController(rootViewController: movies!)
+        let tv = AppAssembler.shared.assembler?.resolver.resolve(TvViewController.self)
+        let navigationController = UINavigationController(rootViewController: tv!)
         rootViewController = navigationController
     }
 
