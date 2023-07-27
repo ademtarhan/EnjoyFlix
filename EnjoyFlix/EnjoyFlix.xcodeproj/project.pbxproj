@@ -37,7 +37,7 @@
 		9A74DE1C2A6B28DE00FCBA5E /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE1B2A6B28DE00FCBA5E /* Data+.swift */; };
 		9A74DE2A2A6D474700FCBA5E /* HeaderWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE282A6D474700FCBA5E /* HeaderWithButton.swift */; };
 		9A74DE312A6FE25400FCBA5E /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE2F2A6FE25400FCBA5E /* SeriesViewController.swift */; };
-		9A74DE322A6FE25400FCBA5E /* TvViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A74DE302A6FE25400FCBA5E /* TvViewController.xib */; };
+		9A74DE322A6FE25400FCBA5E /* SeriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A74DE302A6FE25400FCBA5E /* SeriesViewController.xib */; };
 		9A74DE342A6FE27700FCBA5E /* SeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE332A6FE27700FCBA5E /* SeriesModel.swift */; };
 		9A74DE362A6FE28300FCBA5E /* SeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE352A6FE28300FCBA5E /* SeriesViewModel.swift */; };
 		9A74DE382A6FE39700FCBA5E /* SeriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DE372A6FE39700FCBA5E /* SeriesAssembly.swift */; };
@@ -76,7 +76,7 @@
 		9A74DE1B2A6B28DE00FCBA5E /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		9A74DE282A6D474700FCBA5E /* HeaderWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderWithButton.swift; sourceTree = "<group>"; };
 		9A74DE2F2A6FE25400FCBA5E /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
-		9A74DE302A6FE25400FCBA5E /* TvViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvViewController.xib; sourceTree = "<group>"; };
+		9A74DE302A6FE25400FCBA5E /* SeriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesViewController.xib; sourceTree = "<group>"; };
 		9A74DE332A6FE27700FCBA5E /* SeriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesModel.swift; sourceTree = "<group>"; };
 		9A74DE352A6FE28300FCBA5E /* SeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewModel.swift; sourceTree = "<group>"; };
 		9A74DE372A6FE39700FCBA5E /* SeriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesAssembly.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				9A74DE2F2A6FE25400FCBA5E /* SeriesViewController.swift */,
-				9A74DE302A6FE25400FCBA5E /* TvViewController.xib */,
+				9A74DE302A6FE25400FCBA5E /* SeriesViewController.xib */,
 				9A74DE332A6FE27700FCBA5E /* SeriesModel.swift */,
 				9A74DE352A6FE28300FCBA5E /* SeriesViewModel.swift */,
 			);
@@ -361,7 +361,7 @@
 				9A4DF7542A66AC0F00C7CBF6 /* LaunchScreen.storyboard in Resources */,
 				9A4DF7632A66AE9C00C7CBF6 /* MoviesViewController.xib in Resources */,
 				9A4DF7512A66AC0F00C7CBF6 /* Assets.xcassets in Resources */,
-				9A74DE322A6FE25400FCBA5E /* TvViewController.xib in Resources */,
+				9A74DE322A6FE25400FCBA5E /* SeriesViewController.xib in Resources */,
 				9A74DE152A6B1AAA00FCBA5E /* RegularMovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
