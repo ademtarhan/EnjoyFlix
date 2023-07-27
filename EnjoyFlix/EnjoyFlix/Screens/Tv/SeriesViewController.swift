@@ -8,14 +8,14 @@
 import Combine
 import UIKit
 
-class TvViewController: UIViewController {
+class SeriesViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
-    var viewModel: TvViewModel!
+    var viewModel: SeriesViewModel!
 
     private var cancellables: Set<AnyCancellable> = []
     private lazy var dataSource = generatedDataSource
-    private lazy var sections = TvSection.allCases
+    private lazy var sections = SeriesSection.allCases
     private lazy var nowPlayingCellID = "NowPlayingCollectionViewCell"
     private lazy var regularMovieCellID = "RegularMovieCollectionViewCell"
 
@@ -26,8 +26,8 @@ class TvViewController: UIViewController {
         viewModel.load()
     }
 
-    private var generatedDataSource: UICollectionViewDiffableDataSource<TvSection, CollectionModel> {
-        let dataSource = UICollectionViewDiffableDataSource<TvSection, CollectionModel>(collectionView: collectionView) { _, indexPath, model in
+    private var generatedDataSource: UICollectionViewDiffableDataSource<SeriesSection, CollectionModel> {
+        let dataSource = UICollectionViewDiffableDataSource<SeriesSection, CollectionModel>(collectionView: collectionView) { _, indexPath, model in
             let section = self.sections[indexPath.section]
 
             switch section {
@@ -36,17 +36,16 @@ class TvViewController: UIViewController {
                     return UICollectionViewCell()
                 }
                 
-                cell.setUpTV(model)
+                cell.setUpSeries(model)
                 return cell
             case .topRated, .airingToday, .popular:
                 guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.regularMovieCellID, for: indexPath) as? RegularMovieCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                guard let TV = model as? TvCollectionModel else {
+                guard let series = model as? SeriesCollectionModel else {
                     return cell
                 }
-                print(TV.posterURL)
-                cell.setUpTv(model)
+                cell.setUpSeries(model)
                 return cell
             }
         }
@@ -64,7 +63,7 @@ class TvViewController: UIViewController {
     }
 }
 
-private extension TvViewController {
+private extension SeriesViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
 
@@ -102,7 +101,7 @@ private extension TvViewController {
 }
 
 
-private extension TvViewController {
+private extension SeriesViewController {
     func createComponsitionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             let section = self.sections[sectionIndex]
@@ -159,4 +158,4 @@ private extension TvViewController {
     }
 }
 
-extension TvViewController: UICollectionViewDelegate {}
+extension SeriesViewController: UICollectionViewDelegate {}

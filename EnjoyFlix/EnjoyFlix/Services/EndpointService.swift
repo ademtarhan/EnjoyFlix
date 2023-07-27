@@ -31,7 +31,7 @@ struct EndpointService {
     }
     
     
-    struct Tv {
+    struct Series {
         static func popular(atPage page: Int) -> URL? {
             URL(string: "\(baseURL)/3/tv/popular?api_key=\(apiKey)&language=en-US&page=\(page)")
         }

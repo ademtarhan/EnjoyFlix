@@ -23,13 +23,13 @@ struct MovieResponse: HTTPResponse{
     let releaseDate: Date
 }
 
-struct TvListResponse: HTTPResponse{
+struct SeriesListResponse: HTTPResponse{
     let page: Int
-    let results: [TvResponse]
+    let results: [SeriesResponse]
 }
 
-// TODO: Tv -> TV
-struct TvResponse: HTTPResponse{
+
+struct SeriesResponse: HTTPResponse{
     let id: Int
     let name: String
     let posterPath: String?

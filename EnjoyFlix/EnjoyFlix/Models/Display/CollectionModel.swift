@@ -37,13 +37,13 @@ class MovieCollectionModel: CollectionModel {
 }
 
 
-class TvCollectionModel: CollectionModel {
+class SeriesCollectionModel: CollectionModel {
     let title: String
     let posterURL: URL?
     
     init(id: Int, title: String, posterPath: String?) {
         self.title = title
-        self.posterURL = EndpointService.Tv.poster(ofMovie: posterPath)
+        self.posterURL = EndpointService.Series.poster(ofMovie: posterPath)
         super.init(id: id)
     }
 }

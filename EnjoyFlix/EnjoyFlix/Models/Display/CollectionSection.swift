@@ -62,7 +62,7 @@ enum MoviesSection: CollectionSection {
     }
 }
 
-enum TvSection: CollectionSection {
+enum SeriesSection: CollectionSection {
     case onTv
     case topRated
     case airingToday

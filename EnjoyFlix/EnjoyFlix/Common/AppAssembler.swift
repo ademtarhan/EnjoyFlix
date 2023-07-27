@@ -17,8 +17,8 @@ class AppAssembler {
     func initDI() {
         assembler = Assembler([
                 MoviesAssembly(),
-                TvAssembly(),
-                TvRepositoryAssembly(),
+                SeriesAssembly(),
+                SeriesRepositoryAssembly(),
                 MoviesRepositoryAssembly(),
         ])
         assembler?.apply(assembly: ViewControllerFactoryAssembly(assembler: assembler!))
